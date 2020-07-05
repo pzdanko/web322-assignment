@@ -1,0 +1,13 @@
+
+<h1 class="mealsTitle">Our Valhalla Meals</h1>
+
+<div class="mealsSection">
+    {{#each meals}}
+    <div class="mealCard">
+        <img src="/img/{{this.imgCode}}">
+        <h4>{{this.title}}</h4>
+        <p>{{this.description}}</p>
+        <p class="price">${{this.price}}</p>
+    </div>
+    {{/each}}
+</div>

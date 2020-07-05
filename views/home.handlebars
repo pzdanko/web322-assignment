@@ -1,0 +1,33 @@
+<div class="heroSection">
+    <img src="/img/valhallaCooking.jpg" alt="Hero Section Background">
+    <div class="heroHeader">
+        <h2>Taste the Feasts of Valhalla</h2>
+    </div>
+</div>
+
+<div class="homeContentSection">
+    <div class="homeContentTitle">
+        <h2>All Valhalla Meals are:</h2>
+    </div>
+
+    <div class="homePerks">
+        {{#each perks}}
+        <div class="perkCard">
+            <img src="/img/{{this.imgCode}}">
+            <h4>{{this.perk}}</h3>
+        </div>
+        {{/each}}
+    </div>
+</div>
+
+<h3 class="mealsTitle">Check out our Valhalla Favourites!</h3>
+
+<div class="mealsSection">
+    {{#each topMeals}}
+    <div class="mealCard">
+        <img src="/img/{{this.imgCode}}">
+        <h4>{{this.title}}</h4>
+        <p class="price">${{this.price}}</p>
+    </div>
+    {{/each}}
+</div>

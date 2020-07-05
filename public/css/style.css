@@ -1,0 +1,161 @@
+body {
+    background-color: #222222;
+    font-family: fantasy;
+    color: #DDD;
+}
+
+.logo {
+    width: 12%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 1%;
+    padding-top: 1%;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #111;
+    font-family: fantasy;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: #CCC;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #444;
+}
+
+.heroSection {
+    position: relative;
+    text-align: center;
+    color: #ddd;
+}
+
+.heroSection img {
+    width: 100%;
+}
+
+.heroSection h2 {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: fantasy;
+    font-size: 45pt;
+    white-space: nowrap;
+}
+
+.homeContentSection {
+    color: #DDD;
+}
+
+.homeContentTitle {
+    padding-top: 2%;
+    text-align: center;
+    font-family: fantasy;
+    font-size: 24pt;
+}
+
+.homePerks {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+.perkCard {
+    margin: 2%;
+    font-size: 24pt;
+    text-align: center;
+    font-family: fantasy;
+}
+
+.perkCard img {
+    width: 50%;
+    margin: 5%
+}
+
+.featuredMealsTitle {
+    color: #CCC;
+    text-align: center;
+}
+
+.mealsTitle {
+    font-size: 44pt;
+    color: #DDD;
+    font-family: fantasy;
+    text-align: center;
+    margin-bottom: -2%;
+}
+
+.mealsSection {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    padding: 3%;
+}
+
+.mealCard {
+    background-color: #AAA;
+    margin: 7%;
+    font-size: 14pt;
+    text-align: center;
+    font-family: fantasy;
+    color: #222;
+}
+
+.mealCard .price {
+    font-weight: bold;
+    font-size: 16pt;
+}
+
+.mealCard img {
+    width: 75%;
+    margin: 5%;
+}
+
+.loginRegister {
+    margin: 1% auto;
+    width: 20%;
+    padding: 2%;
+    height: 22em;
+    background-color: #111;
+}
+
+.loginRegister h2 {
+    text-align: center;
+}
+
+.loginRegister input{
+    width: 100%;
+}
+
+.registration {
+    padding-left: 50%;
+    padding-right: 50%;
+}
+
+footer{
+    background-color: #111;
+    padding-top: 1%;
+    text-align: center;
+    font-size: 16pt;
+}
+
+footer img{
+    margin-top: -5%;
+    width: 2%;
+    padding: 0.5%;
+}

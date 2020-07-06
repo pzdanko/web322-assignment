@@ -47,7 +47,7 @@ app.get("/registration", (req, res) => {
     })
 });
 
-app.post("/login", (req, res) => {
+app.post("/userLogin", (req, res) => {
 
     const logErrors = [];
 
@@ -68,24 +68,37 @@ app.post("/login", (req, res) => {
     }
 })
 
-app.post("/login", (req, res) => {
+app.post("/userRegister", (req, res) => {
 
-    const logErrors = [];
+    const regErrors = [];
 
-    if (req.body.logEmail == "") {
-        logErrors.push("You must enter an email.")
+    if (req.body.fname == "") {
+        regErrors.push("First name field is required.")
     }
-    if (req.body.logpsw == "") {
-        logErrors.push("You must enter a password.")
+    if (req.body.lname == "") {
+        regErrors.push("Last name field is required.")
+    }
+    if (req.body.regEmail == "") {
+        regErrors.push("Email field is required.")
+    }
+    if (req.body.regpsw == "") {
+        regErrors.push("Password field is required.")
+    } else {
+        if (req.body.regpsw.length > 12 || req.body.regpsw.length < 6) {
+            regErrors.push("Password must be between 6 to 12 characters.");
+        }
+        if (!req.body.regpsw.match("[0-9A-Za-z]+")){
+            regErrors.push("Password can only contain letters and numbers");
+        }
     }
 
-    if (logErrors.length > 0){
-        res.render("login", {
-            title: "Login",
-            errors: logErrors
+    if (regErrors.length > 0){
+        res.render("registration", {
+            title: "Registration",
+            errors: regErrors
         })
     } else {
-        redirect("/");
+        res.redirect("/");
     }
 })
 

@@ -13,7 +13,12 @@ body {
     padding-top: 1%;
 }
 
-ul {
+nav {
+    position: relative;
+    text-align: center;
+}
+
+nav ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -21,15 +26,16 @@ ul {
     background-color: #111;
 }
 
-li {
+nav ul li {
     float: left;
 }
 
 li a {
-    display: block;
+    display: flex;
     color: #CCC;
+    align-items: center;
     text-align: center;
-    padding: 14px 16px;
+    padding: 10px 12px;
     text-decoration: none;
 }
 
@@ -92,7 +98,6 @@ li a:hover {
 .mealsTitle {
     font-size: 44pt;
     color: #DDD;
-    font-family: fantasy;
     text-align: center;
     margin-bottom: -2%;
 }
@@ -108,7 +113,6 @@ li a:hover {
     margin: 7%;
     font-size: 14pt;
     text-align: center;
-    font-family: fantasy;
     color: #222;
 }
 
@@ -134,7 +138,7 @@ li a:hover {
     text-align: center;
 }
 
-.submitButton{
+.submitButton {
     text-align: center;
 }
 
@@ -152,16 +156,15 @@ li a:hover {
     padding-right: 50%;
 }
 
-footer{
+footer {
     background-color: #111;
     padding-top: 1%;
     text-align: center;
     font-size: 16pt;
 }
 
-footer img{
+footer img {
     margin-top: -5%;
     width: 2%;
     padding: 0.5%;
 }
-

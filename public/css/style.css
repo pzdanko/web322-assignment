@@ -19,7 +19,6 @@ ul {
     padding: 0;
     overflow: hidden;
     background-color: #111;
-    font-family: fantasy;
 }
 
 li {
@@ -53,8 +52,7 @@ li a:hover {
     top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-family: fantasy;
-    font-size: 45pt;
+    font-size: 5em;
     white-space: nowrap;
 }
 
@@ -65,8 +63,7 @@ li a:hover {
 .homeContentTitle {
     padding-top: 2%;
     text-align: center;
-    font-family: fantasy;
-    font-size: 24pt;
+    font-size: 3em;
 }
 
 .homePerks {
@@ -78,9 +75,8 @@ li a:hover {
 
 .perkCard {
     margin: 2%;
-    font-size: 24pt;
+    font-size: 3em;
     text-align: center;
-    font-family: fantasy;
 }
 
 .perkCard img {
@@ -128,9 +124,9 @@ li a:hover {
 
 .loginRegister {
     margin: 1% auto;
-    width: 20%;
+    width: 30%;
     padding: 2%;
-    height: 22em;
+    min-height: 22em;
     background-color: #111;
 }
 
@@ -138,7 +134,16 @@ li a:hover {
     text-align: center;
 }
 
-.loginRegister input{
+.submitButton{
+    text-align: center;
+}
+
+.errors {
+    color: red;
+    font-size: 0.7em;
+}
+
+.loginRegister #fname, #lname, #logEmail, #regEmail, #logpsw, #regpsw {
     width: 100%;
 }
 
@@ -159,3 +164,4 @@ footer img{
     width: 2%;
     padding: 0.5%;
 }
+

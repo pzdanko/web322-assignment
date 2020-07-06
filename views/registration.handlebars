@@ -1,16 +1,18 @@
 <div class="loginRegister">
     <h2>Register</h2>
-    <form>
+    <form action="/registration" method="POST">
         <label for="fname">First name:</label><br>
         <input type="text" id="fname" name="fname"><br>
         <label for="lname">Last name:</label><br>
         <input type="text" id="lname" name="lname"><br>
         <label for="email">Email:</label><br>
-        <input type="text" id="email" name="email"><br>
+        <input type="text" id="regEmail" name="regEmail"><br>
         <label for="password">Password:</label><br>
-        <input type="text" id="password" name="password"><br>
-        <label for="confirmPassword">Confirm Password:</label><br>
-        <input type="text" id="confirmPassword" name="confirmPassword">
+        <input type="text" id="regpsw" name="regpsw"><br><br>
+
+        <div class="submitButton">
+            <input type="submit" id="regSubmit" value="Register">
+        </div>
+
     </form>
-    <button>Submit</button>
 </div>

@@ -117,13 +117,13 @@ app.post("/userRegister", (req, res) => {
         sgMail.setApiKey(process.env.SENDGRID_API_KEY);
         const msg = {
             to: `${req.body.regEmail}`,
-            from: 'pzdanko@myseneca.ca',
+            from: 'pzdanko@hotmail.com',
             subject: 'Welcome to Valhalla Feasts!',
             html: 
-            `<h2>Thank you for signing up ${req.body.fname} $${req.body.lname}!</h2>
+            `<h2>Thank you for signing up ${req.body.fname} ${req.body.lname}!</h2>
             <p>We're excited that this is working and don't have anything else to say!</p>
             <p>Bye!</p>
-            <p>Yours truly, the Valhalla Feasts team</p>`
+            <p>Yours truly, the Valhalla Feasts team</p>`,
         };
         sgMail.send(msg)
         .then(()=>{

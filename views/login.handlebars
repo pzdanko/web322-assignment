@@ -7,9 +7,9 @@
     {{/each}}
     <form action="/userLogin" method="POST">
         <label for="email">Email:</label><br>
-        <input type="email" id="logEmail" name="logEmail"><br>
+        <input type="email" id="logEmail" name="logEmail" value={{email}}><br>
         <label for="password">Password:</label><br>
-        <input type="password" id="logpsw" name="logpsw"><br><br>
+        <input type="password" id="logpsw" name="logpsw" value={{psw}}><br><br>
 
         <div class="submitButton">
             <input type="submit" id="logSubmit" value="Login">

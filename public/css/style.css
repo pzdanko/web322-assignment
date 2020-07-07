@@ -1,6 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
 body {
     background-color: #222222;
-    font-family: fantasy;
+    font-family: 'MedievalSharp', cursive;
     color: #DDD;
 }
 
@@ -16,6 +17,7 @@ body {
 nav {
     position: relative;
     text-align: center;
+    font-family: georgia;
 }
 
 nav ul {
@@ -44,22 +46,23 @@ li a:hover {
 }
 
 .heroSection {
-    position: relative;
-    text-align: center;
-    color: #ddd;
+    display: block;
 }
 
-.heroSection img {
+.heroSection img{
+    position: relative;
+    display: inline-block;
     width: 100%;
 }
 
-.heroSection h2 {
+.heroTitle {
     position: absolute;
-    top: 40%;
+    top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 5em;
-    white-space: nowrap;
+    transform: translate( -50%, -50% );
+    text-align: center;
+    color: white;
+    font-weight: bold;
 }
 
 .homeContentSection {
@@ -81,12 +84,12 @@ li a:hover {
 
 .perkCard {
     margin: 2%;
-    font-size: 3em;
+    font-size: 2.2em;
     text-align: center;
 }
 
 .perkCard img {
-    width: 50%;
+    width: 75%;
     margin: 5%
 }
 
@@ -156,15 +159,35 @@ li a:hover {
     padding-right: 50%;
 }
 
+.userDashboardContent {
+    text-align: center;
+}
+
 footer {
     background-color: #111;
     padding-top: 1%;
     text-align: center;
-    font-size: 16pt;
+    font-size: 0.4em;
 }
 
 footer img {
     margin-top: -5%;
     width: 2%;
     padding: 0.5%;
+}
+
+@media (orientation: portrait) {
+    .logo{
+        width: 50%;
+    }
+    .homePerks {
+        margin-left: 0%;
+        margin-right: 0%;
+    }
+    .mealsSection {
+        grid-template-columns: 1fr 1fr;
+    }
+    .loginRegister{
+        width: 75%;
+    }
 }

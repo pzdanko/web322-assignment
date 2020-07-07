@@ -18,7 +18,7 @@
         {{/each}}
 
         <label for="email">Email:</label><br>
-        <input type="text" id="regEmail" name="regEmail" value={{email}}><br>
+        <input type="email" id="regEmail" name="regEmail" value={{email}}><br>
         {{#each emailError}}
         <div class="errors">
             <p>{{this}}</p>
@@ -26,7 +26,7 @@
         {{/each}}
 
         <label for="password">Password:</label><br>
-        <input type="password" id="regpsw" name="regpsw" value={{psw}}><br>
+        <input type="text" id="regpsw" name="regpsw" value={{psw}}><br>
         {{#each pswError}}
         <div class="errors">
             <p>{{this}}</p>

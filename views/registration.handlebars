@@ -1,19 +1,40 @@
 <div class="loginRegister">
     <h2>Register</h2>
-    {{#each errors}}
-    <div class="errors">
-        <p>{{this}}</p>
-    </div>
-    {{/each}}
     <form action="/userRegister" method="POST">
         <label for="fname">First name:</label><br>
         <input type="text" id="fname" name="fname" value={{fname}}><br>
+        {{#each fnameError}}
+        <div class="errors">
+            <p>{{this}}</p>
+        </div>
+        {{/each}}
+
         <label for="lname">Last name:</label><br>
         <input type="text" id="lname" name="lname" value={{lname}}><br>
+        {{#each lnameError}}
+        <div class="errors">
+            <p>{{this}}</p>
+        </div>
+        {{/each}}
+
         <label for="email">Email:</label><br>
         <input type="text" id="regEmail" name="regEmail" value={{email}}><br>
+        {{#each emailError}}
+        <div class="errors">
+            <p>{{this}}</p>
+        </div>
+        {{/each}}
+
         <label for="password">Password:</label><br>
-        <input type="password" id="regpsw" name="regpsw" value={{psw}}><br><br>
+        <input type="password" id="regpsw" name="regpsw" value={{psw}}><br>
+        {{#each pswError}}
+        <div class="errors">
+            <p>{{this}}</p>
+        </div>
+        {{/each}}
+
+        <br>
+        <br>
 
         <div class="submitButton">
             <input type="submit" id="regSubmit" value="Register">

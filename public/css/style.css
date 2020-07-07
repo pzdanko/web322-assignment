@@ -151,7 +151,7 @@ li a:hover {
 }
 
 .loginRegister #fname, #lname, #logEmail, #regEmail, #logpsw, #regpsw {
-    width: 100%;
+    width: 98%;
 }
 
 .registration {
@@ -167,12 +167,11 @@ footer {
     background-color: #111;
     padding-top: 1%;
     text-align: center;
-    font-size: 0.4em;
+    font-size: 1em;
 }
 
 footer img {
-    margin-top: -5%;
-    width: 2%;
+    width: 2.5%;
     padding: 0.5%;
 }
 
@@ -180,14 +179,27 @@ footer img {
     .logo{
         width: 50%;
     }
+    .homeContentTitle {
+        font-size: 2em;
+    }
     .homePerks {
         margin-left: 0%;
         margin-right: 0%;
+    }
+    .perkCard {
+        font-size: 1.6em;
+    }
+    .perkCard img {
+        margin: 0;
     }
     .mealsSection {
         grid-template-columns: 1fr 1fr;
     }
     .loginRegister{
         width: 75%;
+    }
+    footer img {
+        width: 10%;
+        padding: 2%;
     }
 }

@@ -55,21 +55,28 @@ app.get("/dashboard", (req, res) => {
 
 app.post("/userLogin", (req, res) => {
 
-    const logErrors = [];
+    let errorCount = 0;
+    let logErrors = {
+        email: [],
+        psw: []
+    }
 
     if (req.body.logEmail == "") {
-        logErrors.push("You must enter an email.")
+        logErrors.email.push("You must enter an email.");
+        errorCount++;
     }
     if (req.body.logpsw == "") {
-        logErrors.push("You must enter a password.")
+        logErrors.psw.push("You must enter a password.");
+        errorCount++;
     }
 
-    if (logErrors.length > 0) {
+    if (errorCount > 0) {
         res.render("login", {
             title: "Login",
-            errors: logErrors,
             email: req.body.logEmail,
-            psw: req.body.logpsw
+            emailError: logErrors.email,
+            psw: req.body.logpsw,
+            pswError: logErrors.psw
         })
     } else {
         res.redirect('/');
@@ -78,39 +85,54 @@ app.post("/userLogin", (req, res) => {
 
 app.post("/userRegister", (req, res) => {
 
-    const regErrors = [];
+    let errorCount = 0;
+    let regErrors = {
+        fname: [],
+        lname: [],
+        email: [],
+        psw: []
+    }
 
     if (req.body.fname == "") {
-        regErrors.push("First name field is required.")
+        regErrors.fname.push("First name field is required.");
+        errorCount++;
     }
     if (req.body.lname == "") {
-        regErrors.push("Last name field is required.")
+        regErrors.lname.push("Last name field is required.");
+        errorCount++;
     }
     if (req.body.regEmail == "") {
-        regErrors.push("Email field is required.")
+        regErrors.email.push("Email field is required.");
+        errorCount++;
     }
     if (req.body.regpsw == "") {
-        regErrors.push("Password field is required.")
+        regErrors.psw.push("Password field is required.");
+        errorCount++;
     } else {
         if (req.body.regpsw.length > 12 || req.body.regpsw.length < 6) {
-            regErrors.push("Password must be between 6 to 12 characters.");
+            regErrors.psw.push("Password must be between 6 to 12 characters.");
+            errorCount++;
         }
         const regexLower = /[a-z]/g;
         const regexUpper = /[A-Z]/g;
         const regexNum = /[0-9]/g;
         if (!req.body.regpsw.match(regexLower) || !req.body.regpsw.match(regexUpper) || !req.body.regpsw.match(regexNum)) {
-            regErrors.push("Password must contain an uppercase letter, a lowercase letter, and a number.");
+            regErrors.psw.push("Password must contain an uppercase letter, a lowercase letter, and a number.");
+            errorCount++;
         }
     }
 
-    if (regErrors.length > 0) {
+    if (errorCount > 0) {
         res.render("registration", {
             title: "Registration",
-            errors: regErrors,
             fname: req.body.fname,
+            fnameError: regErrors.fname,
             lname: req.body.lname,
+            lnameError: regErrors.lname,
             email: req.body.regEmail,
-            psw: req.body.regpsw
+            emailError: regErrors.email,
+            psw: req.body.regpsw,
+            pswError: regErrors.psw
         })
     } else {
         const sgMail = require('@sendgrid/mail');

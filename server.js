@@ -1,6 +1,8 @@
 const express = require("express");
 const exphbs = require('express-handlebars');
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+let Schema = mongoose.Schema;
 
 require('dotenv').config({path:"./config/keys.env"});
 
@@ -156,6 +158,12 @@ app.post("/userRegister", (req, res) => {
         });
     }
 })
+
+mongoose.connect('mongodb+srv://pzdankoDB:Pikmin3@senecaweb.arekk.mongodb.net/ValhallaFeasts?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => {
+        console.log(`Connected to MongoDB`);
+    })
+    .catch(err => console.log(`Error occurred when conecting to mongoDB ${err}`));
 
 const PORT = process.env.PORT;
 app.listen(PORT, () => {

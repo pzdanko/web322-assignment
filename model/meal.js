@@ -12,5 +12,4 @@ const mealSchema = new Schema({
     "imgCode": String
 })
 
-const mealModel = mongoose.model("vf_meals", mealsSchema);
-module.exports = mealModel;
+module.exports = mongoose.model('vf_meals', mealSchema);

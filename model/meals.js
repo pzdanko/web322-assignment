@@ -1,3 +1,4 @@
+//this file was the old fake database and is now obsolete
 const meals = {
     mealsDB: [],
     perksDB: [],

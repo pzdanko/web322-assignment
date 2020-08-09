@@ -8,7 +8,7 @@ const ensureLogin = (req, res, next) => {
     if (req.session.user) {
         next();
     } else {
-        res.redirect("/login");
+        res.redirect("/user/login");
     }
 }
 
@@ -16,7 +16,7 @@ const ensureAdmin = (req, res, next) => {
     if (req.session.user.admin) {
         next();
     } else {
-        res.redirect("/dashboard");
+        res.redirect("/user/dashboard");
     }
 }
 

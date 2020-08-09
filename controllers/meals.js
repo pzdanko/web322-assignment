@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const mealModel = require("../model/meal");
+const mealModel = require("../model/mealModel");
 
 router.get("/all", (req, res) => {
     let allMeals = [];
@@ -18,7 +18,8 @@ router.get("/all", (req, res) => {
 
             res.render("meals", {
                 title: "Valhalla Meals",
-                meals: allMeals
+                meals: allMeals,
+                user: req.session.user
             });
         });
 });

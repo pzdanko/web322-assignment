@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const mealModel = require("../model/meal");
+const mealModel = require("../model/mealModel");
 
 router.get("/", (req, res) => {
   let featuredMeals = [];
@@ -11,13 +11,14 @@ router.get("/", (req, res) => {
         return {
           title: meal.title,
           price: meal.price,
-          imgCode: meal.imgCode
+          imgCode: meal.imgCode,
         }
       });
 
       res.render("home", {
         title: "Valhalla Feasts",
-        topMeals: featuredMeals
+        topMeals: featuredMeals,
+        user: req.session.user
       });
     });
 });

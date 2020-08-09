@@ -2,7 +2,8 @@ const express = require("express");
 const exphbs = require('express-handlebars');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+const clientSessions = require('client-sessions')
+const bcryptjs = require('bcryptjs');
 
 require('dotenv').config({ path: "./config/keys.env" });
 
@@ -15,6 +16,13 @@ app.set('view engine', 'handlebars');
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(express.static("public"));
+
+app.use(clientSessions({
+    cookieName: "session",
+    secret: `${process.env.SESSIONS_KEY}`,
+    duration: 60 * 60 * 1000, 
+    activeDuration: 30 * 60 * 1000
+}))
 
 //ROUTES
 const generalController = require("./controllers/general");

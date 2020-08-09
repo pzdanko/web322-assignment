@@ -15,8 +15,13 @@
             <ul>
                 <li><a href="/">Home</a></li>
                 <li><a href="/meals/all">Meals</a></li>
+                {{#if user}}
+                <li><a href="/user/dashboard">Dashboard</a></li>
+                <li><a href="/user/logout">Logout</a></li>
+                {{else}}
                 <li><a href="/user/login">Login</a></li>
                 <li><a href="/user/registration">Register</a></li>
+                {{/if}}
             </ul>
         </nav>
     </header>

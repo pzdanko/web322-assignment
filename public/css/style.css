@@ -147,7 +147,7 @@ li a:hover {
 
 .errors {
     color: red;
-    font-size: 0.7em;
+    font-size: 0.8em;
 }
 
 .loginRegister #fname, #lname, #logEmail, #regEmail, #logpsw, #regpsw {

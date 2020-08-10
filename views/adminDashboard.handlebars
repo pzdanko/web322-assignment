@@ -1,5 +1,19 @@
 <div class="dashboardContent">
     <h2>Welcome {{user.fname}} {{user.lname}}!</h2>
-    <p>This is the admin dashboard.</p>
-    <p>As you can see, this page is still under construction, but come back soon for updates (hopefully)!</p>
+    <p>This is the data clerk dashboard.</p>
+    <p>Here you can make changes to the Valhalla Feasts website.</p>
+    <br>
+    <h3>Select an option</h3>
+    <div class="adminButtonContainer">
+        <div class="addMealButton">
+            <form method="get" action="/meals/add">
+                <input class="adminButton" type="submit" value="Add a meal" />
+            </form>
+        </div>
+        <div class="editMealButton">
+            <form method="get" action="/meals/admin">
+                <input class="adminButton" type="submit" value="Edit a meal" />
+            </form>
+        </div>
+    </div>
 </div>

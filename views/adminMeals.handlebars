@@ -1,0 +1,15 @@
+<h1 class="mealsTitle">Our Valhalla Meals</h1>
+
+<div class="mealsSection">
+    {{#each meals}}
+    <div class="mealCard">
+        <img src="/img/{{this.imgCode}}">
+        <h4>{{this.title}}</h4>
+        <p>{{this.description}}</p>
+        <p class="price">${{this.price}}</p>
+        <form method="get" action="/meals/edit/{{this._id}}">
+            <input class="adminButton" type="submit" value="Update" />
+        </form>
+    </div>
+    {{/each}}
+</div>

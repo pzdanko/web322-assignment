@@ -49,7 +49,7 @@ li a:hover {
     display: block;
 }
 
-.heroSection img{
+.heroSection img {
     position: relative;
     display: inline-block;
     width: 100%;
@@ -59,7 +59,7 @@ li a:hover {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate( -50%, -50% );
+    transform: translate( -50%, -50%);
     text-align: center;
     color: white;
     font-weight: bold;
@@ -163,6 +163,81 @@ li a:hover {
     text-align: center;
 }
 
+.adminButtonContainer {
+    width: 35%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: auto;
+    padding-bottom: 3%;
+}
+
+.adminButton {
+    text-align: center;
+    height: 3em;
+    width: 7em;
+    font-size: 1em;
+}
+
+.mealForm {
+    margin: 1% auto;
+    width: 30%;
+    padding: 2%;
+    min-height: 22em;
+    background-color: #111;
+}
+
+.mealForm h2 {
+    text-align: center;
+}
+
+.mealForm #addMealName, #addMealPrice, #addMealDesc, #editMealName, #editMealPrice, #editMealDesc {
+    width: 98%;
+}
+
+.editImg {
+    width: 100%;
+    text-align: center;
+}
+
+.editImg img{
+    width: 80%;
+}
+
+.radioList {
+    text-align: center;
+}
+
+.imageList {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+
+}
+
+.imageList img {
+    width: 95%;
+    margin: 2%;
+}
+
+[type=radio] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+[type=radio]+img {
+    cursor: pointer;
+}
+
+[type=radio]:checked+img {
+    outline: 2px solid #f00;
+}
+
+.featuredCheck {
+    text-align: center;
+}
+
 footer {
     background-color: #111;
     padding-top: 1%;
@@ -176,7 +251,7 @@ footer img {
 }
 
 @media (orientation: portrait) {
-    .logo{
+    .logo {
         width: 50%;
     }
     .homeContentTitle {
@@ -195,8 +270,14 @@ footer img {
     .mealsSection {
         grid-template-columns: 1fr 1fr;
     }
-    .loginRegister{
+    .loginRegister {
         width: 75%;
+    }
+    .mealForm {
+        width: 75%;
+    }
+    .adminButtonContainer {
+        width: 90%;
     }
     footer img {
         width: 10%;

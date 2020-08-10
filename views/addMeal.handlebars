@@ -1,0 +1,87 @@
+<div class="mealForm">
+    <h2>Add a Meal</h2>
+    {{#each validError}}
+    <div class="errors">
+        <p>{{this}}</p>
+    </div>
+    {{/each}}
+    <form id="addMeal" action="/meals/add" method="POST">
+
+        <label for="addMealName">Meal Name:</label><br>
+        <input type="text" id="addMealName" name="addMealName" value={{mealName}}><br>
+
+        {{#each nameError}}
+        <div class="errors">
+            <p>{{this}}</p>
+        </div>
+        {{/each}}
+
+        <label for="addMealPrice">Price:</label><br>
+        <input type="number" min="0" step="any" id="addMealPrice" name="addMealPrice" value={{mealPrice}}><br>
+
+        {{#each priceError}}
+        <div class="errors">
+            <p>{{this}}</p>
+        </div>
+        {{/each}}
+
+        <label for="addMealDesc">Meal Description:</label><br>
+        <input type="text" id="addMealDesc" name="addMealDesc" value={{mealDesc}}><br>
+        {{#each descError}}
+        <div class="errors">
+            <p>{{this}}</p>
+        </div>
+        {{/each}}
+
+        <br>
+
+        <div class="featuredCheck">
+            <label for="addMealFeature">Featured?</label>
+            <input type="checkbox" id="addMealFeat" name="addMealFeat" value="true">
+        </div>
+
+
+        <div class="radioList">
+            <p>Please select an image because I don't understand uploading images:</p>
+            {{#each imgError}}
+            <div class="errors">
+                <p>{{this}}</p>
+            </div>
+            {{/each}}
+            <div class="imageList">
+                <div>
+                    <label>
+                        <input type="radio" id="addMealSalmon" name="addMealImg" value="salmon.jpg">
+                        <img src="/img/salmon.jpg">
+                    </label><br>
+                </div>
+
+                <div>
+                    <label>
+                        <input type="radio" id="addMealPancakes" name="addMealImg" value="pancakes.jpg">
+                        <img src="/img/pancakes.jpg">
+                    </label><br>
+                </div>
+
+                <div>
+                    <label>
+                        <input type="radio" id="addMealBerries" name="addMealImg" value="berries.jpg">
+                        <img src="/img/berries.jpg">
+                    </label><br>
+                </div>
+
+                <div>
+                    <label>
+                        <input type="radio" id="addMealCupcakes" name="addMealImg" value="cupcakes.jpg">
+                        <img src="/img/cupcakes.jpg">
+                    </label><br>
+                </div>
+            </div>
+        </div>
+
+        <br>
+        <div class="submitButton">
+            <input type="submit" id="addSubmit" value="Submit">
+        </div>
+    </form>
+</div>

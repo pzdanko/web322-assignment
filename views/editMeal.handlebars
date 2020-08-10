@@ -1,0 +1,53 @@
+<div class="mealForm">
+    <h2>Add a Meal</h2>
+    {{#each validError}}
+    <div class="errors">
+        <p>{{this}}</p>
+    </div>
+    {{/each}}
+    <form id="editMeal" action="/meals/edit/{{meal._id}}" method="POST">
+
+        <label for="editMealName">Meal Name:</label><br>
+        <input type="text" id="editMealName" name="editMealName" value='{{meal.title}}'><br>
+
+        {{#each nameError}}
+        <div class="errors">
+            <p>{{this}}</p>
+        </div>
+        {{/each}}
+
+        <label for="editMealPrice">Price:</label><br>
+        <input type="number" min="0" step="any" id="editMealPrice" name="editMealPrice" value='{{meal.price}}'><br>
+
+        {{#each priceError}}
+        <div class="errors">
+            <p>{{this}}</p>
+        </div>
+        {{/each}}
+
+        <label for="mealDesc">Meal Description:</label><br>
+        <input type="text" id="editMealDesc" name="editMealDesc" value='{{meal.description}}'><br>
+        {{#each descError}}
+        <div class="errors">
+            <p>{{this}}</p>
+        </div>
+        {{/each}}
+
+        <br>
+
+        <div class="featuredCheck">
+            <label for="editMealFeature">Featured?</label>
+            <input type="checkbox" id="editMealFeat" name="editMealFeat" checked={{meal.featured}} value="true">
+        </div>
+
+        <p>This is the image of the item. It is too much work to change.</p>
+        <div class="editImg">
+            <img src="/img/{{meal.imgCode}}">
+        </div>
+
+        <br>
+        <div class="submitButton">
+            <input type="submit" id="addSubmit" value="Submit">
+        </div>
+    </form>
+</div>

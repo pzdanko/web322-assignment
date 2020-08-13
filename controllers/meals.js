@@ -59,6 +59,50 @@ router.get("/add", ensureAdmin, (req, res) => {
     });
 });
 
+router.get("/details/:title", (req, res) => {
+    let detailMeal = [];
+    mealModel.find({ title: req.params.title })
+        .exec()
+        .then((meal) => {
+            if (!meal) {
+                console.log("Error finding meal");
+            } else {
+                detailMeal = meal.map(meal => {
+                    return {
+                        _id: meal._id,
+                        title: meal.title,
+                        description: meal.description,
+                        price: meal.price,
+                        imgCode: meal.imgCode
+                    }
+                });
+            }
+            res.render("details", {
+                title: "Meal Details",
+                meals: detailMeal,
+                user: req.session.user
+            });
+        });
+});
+
+router.post("/addToCart/:title", ensureLogin, (req, res) => {
+    mealModel.find({ title: req.params.title })
+        .exec()
+        .then((meal) => {
+            let cartItem = meal.map(meal => {
+                return {
+                    _id: meal._id,
+                    title: meal.title,
+                    description: meal.description,
+                    price: meal.price,
+                    imgCode: meal.imgCode
+                }
+            });
+            req.session.user.cart.push(cartItem[0]);
+            res.redirect("/meals/all");
+        });
+});
+
 router.get("/edit/:_id", ensureAdmin, (req, res) => {
     mealModel.findById(req.params._id)
         .exec()
@@ -73,7 +117,6 @@ router.get("/edit/:_id", ensureAdmin, (req, res) => {
                     price: meal.price,
                     imgCode: meal.imgCode
                 }
-                console.log(editMeal);
                 res.render("editMeal", {
                     title: "Edit meal",
                     user: req.session.user,
@@ -146,8 +189,9 @@ router.post("/add", ensureAdmin, (req, res) => {
         });
     }
 });
-
+/*
 router.post("/edit/:_id", ensureAdmin, (req, res) => {
+    console.log(req.params._id);
     let errorCount = 0;
     let editErrors = {
         name: [],
@@ -170,7 +214,7 @@ router.post("/edit/:_id", ensureAdmin, (req, res) => {
     }
 
     if (errorCount == 0) {
-        mealModel.updateOne({ _id: req.params._id }, {
+        mealModel.findByIdAndUpdate(req.params._id, {
             title: req.body.editMealName,
             price: req.body.editMealPrice,
             description: req.body.editMealDesc,
@@ -183,32 +227,32 @@ router.post("/edit/:_id", ensureAdmin, (req, res) => {
             .catch((err) => {
                 editErrors.valid.push("A meal already uses this name");
                 mealModel.findById(req.params._id)
-                .exec()
-                .then((meal) => {
-                    if (err) {
-                        console.log("Error finding meal");
-                    } else {
-                        res.render("editMeal")({
-                            title: "Edit meal",
-                            user: req.session.user,
-                            meal: meal
-                        });
-                    }
-                });
+                    .exec()
+                    .then((meal) => {
+                        if (err) {
+                            console.log("Error finding meal");
+                        } else {
+                            res.render("editMeal")({
+                                title: "Edit meal",
+                                user: req.session.user,
+                                meal: meal
+                            });
+                        }
+                    });
             })
     } else {
-        res.render("addMeal", {
-            title: "Add Meal",
-            mealName: req.body.addMealName,
-            mealPrice: req.body.addMealPrice,
-            mealDesc: req.body.addMealDesc,
-            nameError: addErrors.name,
-            priceError: addErrors.price,
-            descError: addErrors.desc,
-            imgError: addErrors.img,
+        res.render("editMeal", {
+            title: "Edit Meal",
+            mealName: req.body.editMealName,
+            mealPrice: req.body.editMealPrice,
+            mealDesc: req.body.editMealDesc,
+            nameError: editErrors.name,
+            priceError: editErrors.price,
+            descError: editErrors.desc,
+            imgError: editErrors.img,
             user: req.session.user
         });
     }
-});
+});*/
 
 module.exports = router;

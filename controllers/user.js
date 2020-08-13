@@ -3,6 +3,7 @@ const router = express.Router();
 const brcrypt = require('bcryptjs');
 
 const userModel = require("../model/userModel");
+const mealModel = require("../model/mealModel");
 
 const ensureAdmin = require("../middleware/ensureAdmin");
 const ensureLogin = require("../middleware/ensureLogin");
@@ -80,7 +81,8 @@ router.post("/userLogin", (req, res) => {
                                     fname: user.fname,
                                     lname: user.lname,
                                     email: user.email,
-                                    admin: user.admin
+                                    admin: user.admin,
+                                    cart: []
                                 };
                                 res.redirect("/user/dashboard");
                             } else {
@@ -221,5 +223,64 @@ router.post("/userRegister", (req, res) => {
             })
     }
 });
+
+router.get("/cart", ensureLogin, (req, res) => {
+    let orderTotal = 0;
+    req.session.user.cart.forEach(item => orderTotal += item.price);
+    res.render("shoppingCart", {
+        title: "Shopping Cart",
+        user: req.session.user,
+        item: req.session.user.cart,
+        total: orderTotal
+    });
+});
+
+router.post("/order", ensureLogin, (req, res) => {
+    let orderTotal = 0;
+    let orderhtml = `<table>
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Price</th>
+    </tr>`;
+    req.session.user.cart.forEach(item => orderTotal += item.price);
+    req.session.user.cart.forEach(item => {
+        orderhtml += `<tr>
+        <td>${item.title}</td>
+        <td>${item.description}</td>
+        <td>${item.price}</td>
+        </tr>`
+    });
+    orderhtml += `</table>`;
+
+    const sgMail = require('@sendgrid/mail');
+    sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+    const msg = {
+        to: `${req.session.user.email}`,
+        from: 'pzdanko@hotmail.com',
+        subject: 'Thank you for coming!',
+        html: `<h2>Thank you for ordering from Valhalla Feasts!</h2>
+            <p>Here are your order details ${req.session.user.fname} ${req.session.user.lname}</p>
+            ${orderhtml}
+            <p>Your total was ${orderTotal}</p><br>
+            <p>Thanks again, and see you soon, 
+            the Valhalla Feasts team</p>`,
+    };
+    sgMail.send(msg)
+        .then(() => {
+            req.session.user.cart = [];
+            res.redirect("/user/orderConfirmation");
+        })
+        .catch(err => {
+            console.log(`Error ${err}`);
+        });
+});
+
+router.get("/orderConfirmation", ensureLogin, (req, res) => {
+    res.render("orderConfirmed", {
+        title: "Thank you!",
+        user: req.session.user
+    })
+})
 
 module.exports = router;

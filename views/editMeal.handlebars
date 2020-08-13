@@ -1,11 +1,14 @@
 <div class="mealForm">
-    <h2>Add a Meal</h2>
+    <h2>Edit a Meal</h2>
+    <div class="errors">
+        <p>NOTE: This does not work. I couldn't figure it out.</p>
+    </div>
     {{#each validError}}
     <div class="errors">
         <p>{{this}}</p>
     </div>
     {{/each}}
-    <form id="editMeal" action="/meals/edit/{{meal._id}}" method="POST">
+    <form id="editMeal" method="get" action="/meals/all">
 
         <label for="editMealName">Meal Name:</label><br>
         <input type="text" id="editMealName" name="editMealName" value='{{meal.title}}'><br>

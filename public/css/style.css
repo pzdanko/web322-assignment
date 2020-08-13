@@ -174,8 +174,9 @@ li a:hover {
 .adminButton {
     text-align: center;
     height: 3em;
-    width: 7em;
+    width: 8em;
     font-size: 1em;
+    margin-bottom: 2%;
 }
 
 .mealForm {
@@ -199,7 +200,7 @@ li a:hover {
     text-align: center;
 }
 
-.editImg img{
+.editImg img {
     width: 80%;
 }
 
@@ -211,12 +212,38 @@ li a:hover {
     display: grid;
     grid-template-columns: 1fr 1fr;
     width: 100%;
-
 }
 
 .imageList img {
     width: 95%;
     margin: 2%;
+}
+
+.mealDetails {
+    display: flex;
+    justify-content: center;
+}
+
+.detailCard {
+    width: 80%;
+    background-color: #111;
+    height: 50%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    text-align: center;
+}
+
+.detailCard p {
+    font-size: 2em;
+}
+
+.detailCard .price {
+    font-size: 4em;
+}
+
+.detailCard img {
+    float: left;
+    width: 50%;
 }
 
 [type=radio] {
@@ -235,6 +262,35 @@ li a:hover {
 }
 
 .featuredCheck {
+    text-align: center;
+}
+
+.cartTitle {
+    text-align: center;
+}
+
+.shoppingCart {
+    text-align: center;
+    background-color: #111;
+    margin: 2% 30%;
+}
+
+table.orderTable {
+    text-align: center;
+    margin: 3%;
+    background-color: #111;
+    font-size: 1.5em;
+}
+
+table.orderTable td {
+    width: 10%;
+}
+
+table.orderTable img {
+    max-width: 100%;
+}
+
+.orderConfirmed {
     text-align: center;
 }
 
@@ -278,6 +334,13 @@ footer img {
     }
     .adminButtonContainer {
         width: 90%;
+    }
+    .detailCard img {
+        float: none;
+        width: 100%;
+    }
+    .shoppingCart {
+        margin: 2% 10%;
     }
     footer img {
         width: 10%;

@@ -1,0 +1,33 @@
+<div class="cartTitle">
+    <h1>Your Shopping Cart</h1>
+</div>
+
+<div class="shoppingCart">
+    {{#if user.cart}}
+    <div class="orderDetails">
+        <table class="orderTable">
+            <thead>
+                <tr>
+                    <th>Image</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            {{#each item}}
+            <tr>
+                <td><img src="/img/{{this.imgCode}}"></td>
+                <td>{{this.title}}</td>
+                <td>{{this.price}}</td>
+            </tr>
+
+            {{/each}}
+        </table>
+    </div>
+    <h2>Order Total: {{total}}</h2>
+    {{else}}
+    <h2>Your cart is empty.</h2>
+    {{/if}}
+    <form method="POST" action="/user/order">
+        <input class="adminButton" type="submit" value="Place Order" />
+    </form>
+</div>

@@ -1,0 +1,15 @@
+<div class="mealDetails">
+    {{#each meals}}
+    <div class="detailCard">
+        <div class="detailImg">
+            <img src="/img/{{this.imgCode}}">
+        </div>
+        <h1 class="mealsTitle">{{this.title}}</h1>
+        <p>{{this.description}}</p>
+        <p class="price">${{this.price}}</p>
+        <form method="POST" action="/meals/addToCart/{{this.title}}">
+            <input class="adminButton" type="submit" value="Add to Cart" />
+        </form>
+    </div>
+    {{/each}}
+</div>

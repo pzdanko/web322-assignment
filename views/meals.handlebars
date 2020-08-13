@@ -1,4 +1,3 @@
-
 <h1 class="mealsTitle">Our Valhalla Meals</h1>
 
 <div class="mealsSection">
@@ -8,6 +7,9 @@
         <h4>{{this.title}}</h4>
         <p>{{this.description}}</p>
         <p class="price">${{this.price}}</p>
+        <form method="get" action="/meals/details/{{this.title}}">
+            <input class="adminButton" type="submit" value="Details" />
+        </form>
     </div>
     {{/each}}
 </div>

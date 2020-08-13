@@ -8,7 +8,7 @@
     <form id="addMeal" action="/meals/add" method="POST">
 
         <label for="addMealName">Meal Name:</label><br>
-        <input type="text" id="addMealName" name="addMealName" value={{mealName}}><br>
+        <input type="text" id="addMealName" name="addMealName" value="{{mealName}}"><br>
 
         {{#each nameError}}
         <div class="errors">
@@ -17,7 +17,7 @@
         {{/each}}
 
         <label for="addMealPrice">Price:</label><br>
-        <input type="number" min="0" step="any" id="addMealPrice" name="addMealPrice" value={{mealPrice}}><br>
+        <input type="number" min="0" step="any" id="addMealPrice" name="addMealPrice" value="{{mealPrice}}"><br>
 
         {{#each priceError}}
         <div class="errors">
@@ -26,7 +26,7 @@
         {{/each}}
 
         <label for="addMealDesc">Meal Description:</label><br>
-        <input type="text" id="addMealDesc" name="addMealDesc" value={{mealDesc}}><br>
+        <input type="text" id="addMealDesc" name="addMealDesc" value="{{mealDesc}}"><br>
         {{#each descError}}
         <div class="errors">
             <p>{{this}}</p>

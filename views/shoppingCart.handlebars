@@ -24,10 +24,13 @@
         </table>
     </div>
     <h2>Order Total: {{total}}</h2>
-    {{else}}
-    <h2>Your cart is empty.</h2>
-    {{/if}}
     <form method="POST" action="/user/order">
         <input class="adminButton" type="submit" value="Place Order" />
     </form>
+    {{else}}
+    <h2>Your cart is empty.</h2>
+    <form method="get" action="/meals/all">
+        <input class="adminButton" type="submit" value="Shop" />
+    </form>
+    {{/if}}
 </div>
